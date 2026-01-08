@@ -11,9 +11,9 @@ const Header = ({ onAndroidClick }: HeaderProps) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 glass"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
     >
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="glass rounded-full px-6 py-3 flex items-center gap-6">
         {/* Logo Icon */}
         <div className="flex items-center">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-purple">
