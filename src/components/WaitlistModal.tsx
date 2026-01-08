@@ -93,9 +93,9 @@ const WaitlistModal = ({ isOpen, onClose, platform }: WaitlistModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="glass rounded-2xl p-8 mx-4 md:mx-0 glow-purple">
+            <div className="glass rounded-2xl p-8 w-full max-w-md glow-purple">
               {/* Close Button */}
               <button
                 onClick={handleClose}
