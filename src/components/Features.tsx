@@ -43,6 +43,72 @@ const features = [
   },
 ];
 
+// Voice Transcript Visual Component
+const TranscriptVisual = () => {
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 items-center justify-center max-w-5xl mx-auto">
+      {/* Raw Transcript */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="glass rounded-xl p-6 w-full lg:w-80"
+      >
+        <div className="flex items-center gap-2 mb-4">
+          <Mic className="w-4 h-4 text-primary" />
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Voice Input</span>
+        </div>
+        <p className="text-sm text-foreground/80 leading-relaxed">
+          "I slept about 7 hours last night. Today I learned that you can use dataview queries to filter tasks by due date. Also feeling pretty motivated after my morning run."
+        </p>
+      </motion.div>
+
+      {/* Arrow */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        className="flex items-center justify-center"
+      >
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-purple">
+          <svg className="w-5 h-5 text-primary-foreground rotate-90 lg:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </div>
+      </motion.div>
+
+      {/* Markdown Output */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="glass rounded-xl p-6 w-full lg:w-96"
+      >
+        <div className="flex items-center gap-2 mb-4">
+          <FileText className="w-4 h-4 text-secondary" />
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Daily Note Output</span>
+        </div>
+        <div className="font-mono text-sm space-y-1">
+          <div className="text-muted-foreground">---</div>
+          <div><span className="text-primary">sleep:</span> <span className="text-foreground/80">7</span></div>
+          <div><span className="text-primary">mood:</span> <span className="text-foreground/80">motivated</span></div>
+          <div><span className="text-primary">exercise:</span> <span className="text-foreground/80">morning run</span></div>
+          <div className="text-muted-foreground">---</div>
+          <div className="pt-2">
+            <span className="text-secondary">## Things I Learned Today</span>
+          </div>
+          <div className="text-foreground/80 pl-0">
+            - Dataview queries can filter tasks by due date
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 const Features = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,16 +136,25 @@ const Features = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-foreground">Everything your </span>
-            <span className="gradient-text">daily journaling</span>
-            <span className="text-foreground"> needs</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            Designed for Obsidian Power Users
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Designed for the Obsidian community. Built with the tools and workflows you already love.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We stripped away everything unnecessary to give you the fastest way to capture your thoughts directly into your daily notes
           </p>
+        </motion.div>
+
+        {/* Transcript Visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-24"
+        >
+          <TranscriptVisual />
         </motion.div>
 
         {/* Features Grid */}
