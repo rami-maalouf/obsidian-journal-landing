@@ -16,15 +16,18 @@ const Header = ({ onAndroidClick }: HeaderProps) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-2"
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between glass px-6 py-3 rounded-2xl">
-        {/* Logo Icon */}
-        <div className="flex items-center">
-          <Link to="/">
+      <div className="max-w-6xl mx-auto flex items-center justify-between glass px-6 py-2 rounded-2xl">
+        {/* Logo Icon + Brand Name */}
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-purple">
               <Layers className="w-5 h-5 text-primary-foreground" />
             </div>
+            <span className="text-sm font-medium text-foreground px-2.5 py-1 rounded-lg border border-primary/20 bg-primary/5 hidden sm:inline">
+              Obsidian Journal
+            </span>
           </Link>
         </div>
 
