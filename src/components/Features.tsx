@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { 
-  Mic, 
-  Shield, 
-  RefreshCw, 
-  Layers, 
-  Clock, 
+import {
+  Mic,
+  Shield,
+  RefreshCw,
+  Layers,
+  Clock,
   Code2,
   Smartphone,
   FileText
@@ -128,7 +128,7 @@ const Features = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-obsidian" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -146,16 +146,7 @@ const Features = () => {
           </p>
         </motion.div>
 
-        {/* Transcript Visual */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-24"
-        >
-          <TranscriptVisual />
-        </motion.div>
+
 
         {/* Features Grid */}
         <motion.div
@@ -207,7 +198,7 @@ const Features = () => {
               Your thoughts deserve a better home
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Stop losing reflections to scattered notes. Let your voice flow into your Obsidian vault, 
+              Stop losing reflections to scattered notes. Let your voice flow into your Obsidian vault,
               structured and searchable forever.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
