@@ -14,7 +14,7 @@ const features = [
   {
     icon: Mic,
     title: "Voice-First Capture",
-    description: "Simply speak your thoughts. No typing, no friction. Your voice becomes structured journal entries instantly.",
+    description: "Speak your thoughts out, and we'll take care of the rest.",
   },
   {
     icon: RefreshCw,
@@ -195,7 +195,7 @@ const Features = () => {
               </div>
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Your thoughts deserve a better home
+              Stop managing. Start yapping
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
               Stop losing reflections to scattered notes. Let your voice flow into your Obsidian vault,

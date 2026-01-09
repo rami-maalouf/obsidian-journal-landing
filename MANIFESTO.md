@@ -11,16 +11,16 @@ Even worse is what happens *while* we write. When we type, we unconsciously filt
 
 This kills the flow. Deep insights don't come from structured typing; they sprout when we let our thoughts run wild. Speaking out loud bypasses this internal editor. It allows us to wander through a thought until we hit a realization we didn't expect.
 
-**The Tragedy**: We are spending 50% of our brainpower on *managing* our notes (where does this go? how do I format this?) instead of *creating* value. We need a system that lets us just **think**, while the machine handles the chores of structure and placement.
+**The Tragedy**: We are spending 50% of our brainpower on *managing* our notes (where does this go? how do I format this?) instead of, *ideating*, *thinking*, *inventing*, *creating*, *reflecting*. We need a system that lets us do just these things without distraction, while the machine handles the chores of structure and placement.
 
 ## The Solution: Obsidian Journal
 **Obsidian Journal** is the zero-friction bridge. It is not a replacement for Obsidian; it is the perfect satellite. It exists for one singular purpose: **Instant, intelligent capture.**
 
-We are the "middleman" that respects your privacy, your data sovereignty, and your existing workflow.
+We are the "middleman" that instantly understands you and your Obsidian Daily Notes, and puts your thoughts where they belong.
 
 ### Core Philosophy
 1.  **Personalized Intelligence**: The AI deeply understands your daily note template and updates it surgically. Just as you would if you manually did it.
-2.  **Private by Default**: Your thoughts are yours. No cloud database. No "sync" servers. it works just like another Obsidian plugin.
+2.  **Fully Private**: Your thoughts are yours. No cloud database. No "sync" servers. it works just like another Obsidian plugin.
 3.  **Speed is a Feature**: Capture must be faster than forgetting.
 
 ## Who This Is For
@@ -34,8 +34,7 @@ You are tech-savvy enough to care about Markdown and local files, but you're tir
 ## What It Actually Does
 Obsidian Journal is a native iOS app that lives on top of your existing Obsidian Vault.
 
-### 1. The Magic Button
-One tap. You speak. You're done.
+### 1. Effortless Capture
 We use state-of-the-art on-device transcription (WhisperKit) to turn your voice into perfect text. 4x faster than cloud transcription and just as accurate.
 
 ### 2. Intelligent Template Hydration
@@ -56,9 +55,9 @@ We are just editing Markdown files. If you delete our app tomorrow, your data is
 
 ## The Vision
 We are building the **ultimate input method for the thoughtful life.**
-We believe that technology should dissolve. You shouldn't be "using an app"; you should be **offloading your mind**.
+We believe that technology should dissolve. You shouldn't be "using an app"; you should be **offloading your mind** to allow it to flow freely and think clearly.
 
-Obsidian Journal is that promise kept. It is the silent, efficient, private secretary that ensures no brilliant thought, no critical task, and no fleeting memory is ever left behind.
+It is the silent, efficient, private secretary that ensures no brilliant thought, no critical task, and no fleeting memory is ever left behind.
 
 ---
 *Built with obsession in Swift. Open Source. Private First.*
