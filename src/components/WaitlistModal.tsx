@@ -1,194 +1,219 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Apple, Smartphone, CheckCircle, Loader2 } from "lucide-react";
-import confetti from "canvas-confetti";
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+type Platform = "ios" | "android" | "iOS" | "Android";
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
-  platform: "ios" | "android";
+  platform: Platform;
 }
 
-const WaitlistModal = ({ isOpen, onClose, platform }: WaitlistModalProps) => {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
+export function WaitlistModal({ isOpen, onClose, platform }: WaitlistModalProps) {
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "loading" | "success" | "already-added" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
+  // Normalize platform string
+  const normalizedPlatform = platform.toLowerCase() === "ios" ? "iOS" : "Android";
 
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
-      return;
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
+
+  // Reset state when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitStatus("idle");
+      setErrorMessage("");
+      form.reset();
     }
+  }, [isOpen, form]);
 
-    setIsSubmitting(true);
+  const onSubmit = async (values: FormValues) => {
+    setSubmitStatus("loading");
+    setErrorMessage("");
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Trigger confetti
-    const duration = 3000;
-    const end = Date.now() + duration;
-
-    const colors = ["#7C39ED", "#8758FF", "#A78BFA", "#C4B5FD"];
-
-    (function frame() {
-      confetti({
-        particleCount: 2,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: colors,
-      });
-      confetti({
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: colors,
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
+    try {
+      // if dev mode, skip and set success
+      if (import.meta.env.DEV) {
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setSubmitStatus("success");
+        return;
       }
-    })();
 
-    // Auto close after delay
-    setTimeout(() => {
-      onClose();
-      setIsSuccess(false);
-      setEmail("");
-    }, 3000);
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: values.email, platform: normalizedPlatform }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to join waitlist");
+      }
+
+      if (data.alreadyAdded) {
+        setSubmitStatus("already-added");
+      } else {
+        setSubmitStatus("success");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "Something went wrong"
+      );
+    }
   };
 
-  const handleClose = () => {
-    onClose();
-    setIsSuccess(false);
-    setEmail("");
-    setError("");
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      onClose();
+    }
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={handleClose}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
-          />
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>
+            {normalizedPlatform === "iOS" ? "Join the iOS Beta" : "Join the Waitlist"}
+          </DialogTitle>
+          <DialogDescription>
+            {normalizedPlatform === "iOS"
+              ? "Enter your email to join the TestFlight beta."
+              : "Enter your email to get early access on Android."}
+          </DialogDescription>
+        </DialogHeader>
 
-          {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          >
-            <div className="glass rounded-2xl p-8 w-full max-w-md glow-purple">
-              {/* Close Button */}
-              <button
-                onClick={handleClose}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {!isSuccess ? (
-                <>
-                  {/* Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                      {platform === "ios" ? (
-                        <Apple className="w-7 h-7 text-primary-foreground" />
-                      ) : (
-                        <Smartphone className="w-7 h-7 text-primary-foreground" />
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground">
-                        Join the {platform === "ios" ? "iOS" : "Android"} Waitlist
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Be notified when we launch
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Form */}
-                  <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email address
-                      </label>
-                      <input
+        {submitStatus === "idle" || submitStatus === "loading" ? (
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter your email"
                         type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="you@example.com"
-                        className="input-glass"
-                        disabled={isSubmitting}
+                        disabled={submitStatus === "loading"}
+                        {...field}
                       />
-                      {error && (
-                        <p className="mt-2 text-sm text-destructive">{error}</p>
-                      )}
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full btn-hero flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin relative z-10" />
-                          <span>Joining...</span>
-                        </>
-                      ) : (
-                        <span>Join Waitlist</span>
-                      )}
-                    </button>
-                  </form>
-
-                  <p className="mt-4 text-xs text-center text-muted-foreground">
-                    No spam, ever. We'll only email you when we're ready to launch.
-                  </p>
-                </>
-              ) : (
-                /* Success State */
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-6"
-                >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="w-8 h-8 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
-                    You're on the list!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    We'll let you know as soon as we launch on {platform === "ios" ? "iOS" : "Android"}.
-                  </p>
-                </motion.div>
-              )}
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={submitStatus === "loading"}
+              >
+                {submitStatus === "loading" ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Joining...
+                  </>
+                ) : normalizedPlatform === "iOS" ? (
+                  "Join Beta"
+                ) : (
+                  "Join Waitlist"
+                )}
+              </Button>
+            </form>
+          </Form>
+        ) : submitStatus === "success" || submitStatus === "already-added" ? (
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center gap-2 text-green-500">
+              <CheckCircle2 className="w-5 h-5" />
+              <h3 className="font-semibold">
+                {submitStatus === "already-added"
+                  ? "Already on the list"
+                  : normalizedPlatform === "iOS"
+                  ? "You're on the list!"
+                  : "You're on the list!"}
+              </h3>
             </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+
+            <p className="text-sm text-muted-foreground">
+              {submitStatus === "already-added"
+                ? "We already have your email. We'll notify you when we're ready."
+                : normalizedPlatform === "iOS"
+                ? "Thanks! You've been added to the beta list."
+                : "Thanks for joining! We'll allow more users off the waitlist soon."}
+            </p>
+
+            {normalizedPlatform === "iOS" && (
+              <Button
+                className="w-full gap-2"
+                onClick={() =>
+                  window.open(
+                    "https://testflight.apple.com/join/Zj1W3kmf",
+                    "_blank"
+                  )
+                }
+              >
+                Download on TestFlight
+              </Button>
+            )}
+
+            <Button
+              variant={normalizedPlatform === "iOS" ? "ghost" : "default"}
+              onClick={onClose}
+            >
+              Close
+            </Button>
+          </div>
+        ) : (
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center gap-2 text-destructive">
+              <AlertCircle className="w-5 h-5" />
+              <h3 className="font-semibold">Something went wrong</h3>
+            </div>
+            <p className="text-sm text-muted-foreground">{errorMessage}</p>
+            <Button variant="outline" onClick={() => setSubmitStatus("idle")}>
+              Try Again
+            </Button>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
   );
-};
+}
 
 export default WaitlistModal;
