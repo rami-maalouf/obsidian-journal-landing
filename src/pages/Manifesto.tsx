@@ -94,7 +94,7 @@ const Manifesto = () => {
                 </div>
 
                 <div className="border-l-2 border-primary/50 pl-6 italic text-foreground/80">
-                  "The Tragedy: We are spending 50% of our brainpower on managing our notes instead of creating value."
+                  "The Tragedy: We are spending 50% of our brainpower on <em>managing</em> our notes (where does this go? how do I format this?) instead of, <em>ideating</em>, <em>thinking</em>, <em>inventing</em>, <em>creating</em>, <em>reflecting</em>. We need a system that lets us do just these things without distraction, while the machine handles the chores of structure and placement."
                 </div>
               </div>
             </motion.section>
@@ -109,11 +109,14 @@ const Manifesto = () => {
                 <p>
                   <strong className="text-foreground">Obsidian Journal</strong> is the zero-friction bridge. It is not a replacement for Obsidian; it is the perfect satellite. It exists for one singular purpose: <strong className="text-primary">Instant, intelligent capture.</strong>
                 </p>
+                <p>
+                  We are the "middleman" that instantly understands you and your Obsidian Daily Notes, and puts your thoughts where they belong.
+                </p>
 
                 <div className="grid gap-4 mt-6">
                   {[
-                    { title: "Personalized Intelligence", desc: "The AI deeply understands your daily note template and updates it surgically." },
-                    { title: "Private by Default", desc: "Your thoughts are yours. No cloud database. No 'sync' servers." },
+                    { title: "Personalized Intelligence", desc: "The AI deeply understands your daily note template and updates it surgically. Just as you would if you manually did it." },
+                    { title: "Fully Private", desc: "Your thoughts are yours. No cloud database. No 'sync' servers. it works just like another Obsidian plugin." },
                     { title: "Speed is a Feature", desc: "Capture must be faster than forgetting." }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4 items-start bg-secondary/5 p-4 rounded-lg">
@@ -161,23 +164,23 @@ const Manifesto = () => {
                 {[
                   {
                     icon: "🎙️",
-                    title: "The Magic Button",
-                    desc: "One tap. You speak. You're done. State-of-the-art on-device transcription (WhisperKit)."
+                    title: "Effortless Capture",
+                    desc: "We use state-of-the-art on-device transcription (WhisperKit) to turn your voice into perfect text. 4x faster than cloud transcription and just as accurate."
                   },
                   {
                     icon: "🧠",
                     title: "Intelligent Template Hydration",
-                    desc: "Most AI just dumps a summary. We update your specific template fields surgically. Sleep, Tasks, Reflections - all routed to the right place."
+                    desc: "Most AI tools just dump a summary at the bottom of a file. We are smarter. We read your existing Daily Note template. We understand your structure. We patch your file surgically. We don't overwrite; we populate."
                   },
                   {
                     icon: "📝",
                     title: "Archive & Drafts",
-                    desc: "Not ready to commit? Keep it as a draft. Review, edit, then swipe to send."
+                    desc: "Not ready to commit to the vault? Keep it as a draft. Review it, edit it, then swipe to send. It's a staging area for your mind."
                   },
                   {
                     icon: "🔒",
                     title: "Zero Lock-In",
-                    desc: "We are just editing Markdown files. Calculate the bus factor: 1. Your data is yours forever."
+                    desc: "We are just editing Markdown files. If you delete our app tomorrow, your data is still just text files in your vault. We are a good citizen of the ecosystem."
                   }
                 ].map((feature, i) => (
                   <div key={i} className="glass p-6 rounded-xl hover:bg-secondary/5 transition-colors">
@@ -196,7 +199,7 @@ const Manifesto = () => {
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   We are building the <strong>ultimate input method for the thoughtful life.</strong>
                   <br /><br />
-                  We believe that technology should dissolve. You shouldn't be "using an app"; you should be <strong>offloading your mind</strong>.
+                  We believe that technology should dissolve. You shouldn't be "using an app"; you should be <strong>offloading your mind</strong> to allow it to flow freely and think clearly.
                 </p>
                 <div className="pt-8">
                    <p className="text-sm font-mono text-muted-foreground/60 uppercase tracking-widest">

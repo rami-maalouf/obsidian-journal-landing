@@ -51,11 +51,11 @@ const Hero = ({ onIOSClick }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold pb-6 pt-14 leading-tight"
+            className="text-5xl md:text-7xl font-bold py-6 leading-tight"
           >
-            <span className="text-foreground">Just speak.</span>
+            <span className="text-foreground">Update your Obsidian notes</span>
             <br />
-            <span className="gradient-text glow-text">Your journal writes itself.</span>
+            <span className="gradient-text glow-text">with your voice.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -63,10 +63,9 @@ const Hero = ({ onIOSClick }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground pb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            The simplest way to capture your thoughts and update your Obsidian daily notes.
-            No typing. No friction. Just your voice and your vault.
+            Just talk, and we'll take care of placing the content right where it belongs in your vault.
           </motion.p>
 
           {/* CTA Button */}
@@ -78,11 +77,11 @@ const Hero = ({ onIOSClick }: HeroProps) => {
           >
             <button onClick={onIOSClick} className="btn-hero group flex items-center gap-3">
               <Apple className="w-5 h-5 relative z-10 transition-transform group-hover:scale-" />
-              <span>Install on iOS</span>
+              <span>Join iOS Beta</span>
             </button>
-            {/* <p className="text-sm text-muted-foreground">
-              Be the first to know when we launch
-            </p> */}
+             <p className="text-sm text-muted-foreground">
+              Available on TestFlight now
+            </p>
           </motion.div>
 
           {/* Voice Visualization */}

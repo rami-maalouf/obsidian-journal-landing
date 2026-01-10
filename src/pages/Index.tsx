@@ -18,7 +18,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-obsidian">
       <Header onAndroidClick={() => openModal("android")} />
       <Hero onIOSClick={() => openModal("ios")} />
-      <Features />
+      <Features onIOSClick={() => openModal("ios")} />
       <Footer />
       <WaitlistModal
         isOpen={isModalOpen}
