@@ -37,7 +37,7 @@ const Manifesto = () => {
         <main className="container mx-auto px-6 pt-32 pb-20 max-w-4xl">
           <motion.div {...fadeInUp} className="mb-12">
             <Link to="/">
-              <Button variant="ghost" className="group pl-0 hover:pl-2 transition-all gap-2 text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" className="group pl-0 hover:pl-2 transition-all gap-2 text-muted-foreground">
                 <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 Back to Home
               </Button>
@@ -201,11 +201,7 @@ const Manifesto = () => {
                   <br /><br />
                   We believe that technology should dissolve. You shouldn't be "using an app"; you should be <strong>offloading your mind</strong> to allow it to flow freely and think clearly.
                 </p>
-                <div className="pt-8">
-                   <p className="text-sm font-mono text-muted-foreground/60 uppercase tracking-widest">
-                    Built with obsession in Swift. Open Source. Private First.
-                   </p>
-                </div>
+
               </div>
             </motion.section>
 

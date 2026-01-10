@@ -9,11 +9,17 @@ const Footer = () => {
   return (
     <footer className="relative py-12 border-t border-border/50">
       <div className="container mx-auto px-6">
+        <div className="w-full text-center pb-8 mb-8 border-b border-border/10">
+          <p className="text-sm font-mono text-muted-foreground/60 uppercase tracking-widest">
+            Built with obsession in Swift. Open Source. Local First.
+          </p>
+        </div>
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Copyright */}
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Layers className="w-4 h-4 text-primary-foreground" />
+            <div className="w-6 h-6 rounded-md flex items-center justify-center">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
             <span className="text-sm text-muted-foreground">
               © 2026 Ignite by <a href="https://orbitlabs.studio" className="text-primary hover:underline transition-colors" target="_blank">Orbit Labs</a>
@@ -22,6 +28,12 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-6">
+            <Link
+              to="/manifesto"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Manifesto
+            </Link>
             <Link
               to="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -34,6 +46,14 @@ const Footer = () => {
             >
               Terms
             </Link>
+            <a
+              href="mailto:ignite@ramimaalouf.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Support
+            </a>
             <div className="flex items-center gap-4">
               <a
                 href="https://github.com/psycho-baller/obsidian-journal-landing"

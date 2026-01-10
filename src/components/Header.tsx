@@ -22,12 +22,12 @@ const Header = ({ onAndroidClick }: HeaderProps) => {
         {/* Logo Icon + Brand Name */}
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-purple">
-              <Layers className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-sm font-medium text-foreground px-2.5 py-1 rounded-lg border border-primary/20 bg-primary/5 hidden sm:inline">
+            {/* <span className="text-sm font-medium text-foreground px-2.5 py-1 rounded-lg border border-primary/20 bg-primary/5 hidden sm:inline">
               Ignite
-            </span>
+            </span> */}
           </Link>
         </div>
 

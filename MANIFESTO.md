@@ -60,4 +60,4 @@ We believe that technology should dissolve. You shouldn't be "using an app"; you
 It is the silent, efficient, private secretary that ensures no brilliant thought, no critical task, and no fleeting memory is ever left behind.
 
 ---
-*Built with obsession in Swift. Open Source. Private First.*
+*Built with obsession in Swift. Open Source. Local First.*

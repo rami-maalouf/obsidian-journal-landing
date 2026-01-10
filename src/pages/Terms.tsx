@@ -12,8 +12,8 @@ const Terms = () => {
             <ArrowLeft className="w-5 h-5" />
             <span className="text-sm">Back</span>
           </Link>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-purple">
-            <Layers className="w-5 h-5 text-primary-foreground" />
+          <div className="w-8 h-8 flex items-center justify-center">
+            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
         </div>
       </header>
