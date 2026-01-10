@@ -16,7 +16,7 @@ const Footer = () => {
               <Layers className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-sm text-muted-foreground">
-              © 2026 Obsidian Journal by <a href="https://orbitlabs.studio" className="text-primary hover:underline transition-colors" target="_blank">Orbit Labs</a>
+              © 2026 Ignite by <a href="https://orbitlabs.studio" className="text-primary hover:underline transition-colors" target="_blank">Orbit Labs</a>
             </span>
           </div>
 

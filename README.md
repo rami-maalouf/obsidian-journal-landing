@@ -1,4 +1,4 @@
-# Obsidian Journal
+# Ignite
 
 ## Manifesto
 

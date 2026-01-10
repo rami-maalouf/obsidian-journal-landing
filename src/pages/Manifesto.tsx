@@ -51,7 +51,7 @@ const Manifesto = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
             >
-              The <span className="gradient-text">Obsidian Journal</span> Manifesto
+              The <span className="gradient-text">Ignite</span> Manifesto
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -107,7 +107,7 @@ const Manifesto = () => {
               </h2>
               <div className="glass p-8 rounded-2xl space-y-6 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  <strong className="text-foreground">Obsidian Journal</strong> is the zero-friction bridge. It is not a replacement for Obsidian; it is the perfect satellite. It exists for one singular purpose: <strong className="text-primary">Instant, intelligent capture.</strong>
+                  <strong className="text-foreground">Ignite</strong> is the zero-friction bridge. It is not a replacement for Obsidian; it is the perfect satellite. It exists for one singular purpose: <strong className="text-primary">Instant, intelligent capture.</strong>
                 </p>
                 <p>
                   We are the "middleman" that instantly understands you and your Obsidian Daily Notes, and puts your thoughts where they belong.

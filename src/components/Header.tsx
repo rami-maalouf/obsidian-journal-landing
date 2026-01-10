@@ -26,7 +26,7 @@ const Header = ({ onAndroidClick }: HeaderProps) => {
               <Layers className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-sm font-medium text-foreground px-2.5 py-1 rounded-lg border border-primary/20 bg-primary/5 hidden sm:inline">
-              Obsidian Journal
+              Ignite
             </span>
           </Link>
         </div>

@@ -190,19 +190,16 @@ const Features = ({ onIOSClick }: FeaturesProps) => {
           <div className="glass rounded-2xl p-8 md:p-12 max-w-2xl mx-auto flex flex-col items-center">
 
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready to stop typing?
+Capture to Obsidian at the speed of thought
             </h3>
             <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of Obsidian users who've already made the switch.
+              Stop navigating, start yapping
             </p>
 
             <button onClick={onIOSClick} className="btn-hero group flex items-center gap-3">
               {/* Note: Ideally we pass down onIOSClick prop here, but for now we'll rely on the header button or add the prop if needed.
                   Wait, Features component doesn't receive props currently. Let's fix that. */}
                <span className="flex items-center gap-2">
-                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.93 3.69-.65 4.4.61 5.28 4.7 5.38 4.72-.03.07-3.24 1.04-3.24 4.09 0 3.2 2.84 4.19 2.92 4.22-.05.15-1.35 4.67-4 4.67zM12.03 7.25c-.11-2.35 1.9-4.7 4.54-4.8C16.89 4.38 12.39 3.01 12.03 7.25z" />
-                 </svg>
                  Join iOS Beta
                </span>
             </button>

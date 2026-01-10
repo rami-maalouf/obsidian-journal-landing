@@ -84,7 +84,7 @@ export default async function handler(request: Request) {
         App: {
           multi_select: [
             {
-              name: "obsidian journal",
+              name: "Ignite",
             },
           ],
         },

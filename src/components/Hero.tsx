@@ -65,7 +65,7 @@ const Hero = ({ onIOSClick }: HeroProps) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Just talk, and we'll take care of placing the content right where it belongs in your vault.
+            Just talk, and we'll take care of placing the content right where it belongs in your vault
           </motion.p>
 
           {/* CTA Button */}
@@ -77,7 +77,7 @@ const Hero = ({ onIOSClick }: HeroProps) => {
           >
             <button onClick={onIOSClick} className="btn-hero group flex items-center gap-3">
               <Apple className="w-5 h-5 relative z-10 transition-transform group-hover:scale-" />
-              <span>Join iOS Beta</span>
+              <span>Install on iOS</span>
             </button>
              <p className="text-sm text-muted-foreground">
               Available on TestFlight now

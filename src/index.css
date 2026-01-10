@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* Obsidian Journal Design System - Dark, Futuristic, Glassmorphism */
+/* Ignite Design System - Dark, Futuristic, Glassmorphism */
 
 @layer base {
   :root {
@@ -116,7 +116,7 @@
       hsl(var(--glass-bg) / 0.6) 0%,
       hsl(var(--glass-bg) / 0.3) 100%
     );
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 hsl(var(--glow-purple) / 0.1),
       inset 0 1px 0 0 hsl(var(--glass-highlight) / 0.05);
   }
@@ -128,7 +128,7 @@
 
   /* Glow Effects */
   .glow-purple {
-    box-shadow: 
+    box-shadow:
       0 0 20px hsl(var(--glow-purple) / 0.3),
       0 0 60px hsl(var(--glow-purple) / 0.15),
       0 0 100px hsl(var(--glow-violet) / 0.1);
@@ -175,7 +175,7 @@
 
   .btn-hero:hover {
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
       0 10px 40px hsl(var(--glow-purple) / 0.4),
       0 0 80px hsl(var(--glow-violet) / 0.2);
   }
@@ -205,7 +205,7 @@
 
   .feature-card:hover {
     transform: translateY(-4px);
-    box-shadow: 
+    box-shadow:
       0 20px 40px hsl(var(--glow-purple) / 0.15),
       inset 0 1px 0 0 hsl(var(--glass-highlight) / 0.1);
   }
@@ -225,7 +225,7 @@
 
   /* Background Gradient */
   .bg-gradient-obsidian {
-    background: 
+    background:
       radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--glow-purple) / 0.15), transparent),
       radial-gradient(ellipse 60% 40% at 80% 60%, hsl(var(--glow-violet) / 0.08), transparent),
       radial-gradient(ellipse 50% 30% at 20% 80%, hsl(var(--glow-purple) / 0.05), transparent),
