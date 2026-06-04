@@ -43,7 +43,7 @@ const Header = ({ onAndroidClick }: HeaderProps) => {
           {/* Social Links */}
           <div className="hidden sm:flex items-center gap-6">
             <a
-              href="https://github.com/psycho-baller/obsidian-journal-landing"
+              href="https://github.com/rami-maalouf/obsidian-journal-landing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
